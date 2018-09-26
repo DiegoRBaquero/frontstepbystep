@@ -4,7 +4,7 @@
             <a id="previous-item-button" (click)="previousBook()" *ngIf="showLeft"><i class="fa fa-angle-left fa-4x"></i></a>
         </div>
         <div class="col-md-2 text-center" *ngFor="let book of list">
-            <figure id="book-figure" class="figure" routerLink="/books/{{book.id}}">
+            <figure id="book-figure" class="figure" routerLink="/books/{{book.id}}/details">
                 <div class="img-thumbnail border-0">
                     <img id="book-cover-image" class="img-fluid" src='{{book.image}}' alt="{{book.name}}" />
                 </div>

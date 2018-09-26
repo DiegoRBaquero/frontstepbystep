@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+
 import { ToastrService } from 'ngx-toastr';
 
 import { AuthorService } from '../author.service';
@@ -43,7 +44,7 @@ export class AuthorDetailComponent implements OnInit {
     author_id: number;
 
     /**
-    * The method which obtains the author whose details we want to show
+    * The function which obtains the author whose details we want to show
     */
     getAuthor(): void {
         this.authorService.getAuthor(this.author_id)
@@ -55,7 +56,7 @@ export class AuthorDetailComponent implements OnInit {
     }
 
     /**
-    * This method retrieves the books of the author
+    * This function retrieves the books of the author
     */
     getBooksByAuthor(): void {
         this.authorService.getBooksOfAuthor(this.author_id)
@@ -67,12 +68,12 @@ export class AuthorDetailComponent implements OnInit {
     }
 
     /**
-    * The method which initializes the component.
-    * We need to create the author so it is never considered as undefined
+    * The function which initializes the component.
     */
     ngOnInit() {
         this.author_id = +this.route.snapshot.paramMap.get('id');
         this.author = new Author();
+        this.author_books = [];
         this.getAuthor();
         this.getBooksByAuthor();
     }

@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+
 import { ToastrService } from 'ngx-toastr';
 
 import { EditorialService } from '../editorial.service';
+
 import { Editorial } from '../editorial';
 import { Book } from '../../book/book';
 
@@ -41,7 +43,7 @@ export class EditorialDetailComponent implements OnInit {
     editorial_id: number;
 
     /**
-    * The method which retrieves the books of an editorial
+    * The function which retrieves the books of an editorial
     */
     getBooks(): void {
         this.editorialService.getEditorial(this.editorial_id)
@@ -53,7 +55,7 @@ export class EditorialDetailComponent implements OnInit {
     }
 
     /**
-    * This method retrieves the books of an editorial to show them in the list
+    * This function retrieves the books of an editorial to show them in the list
     */
     getBooksByEditorial(): void {
         this.editorialService.getBooksOfEditorial(this.editorial_id)
@@ -61,8 +63,7 @@ export class EditorialDetailComponent implements OnInit {
     }
 
     /**
-    * The method which initializes the component
-    * We need to initialize the editorial so it is never considered as undefined
+    * The function which initializes the component
     */
     ngOnInit() {
         this.editorial_books = [];

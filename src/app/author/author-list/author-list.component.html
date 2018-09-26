@@ -1,22 +1,43 @@
 <div id="alertPanel" style="text-align: center"></div>
 <div class="container-fluid">
-    <div class="col-md-4">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Birth Date</th>
-
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let author of authors">
-                    <td>
-                        <dd id="author-name" class="figure-caption" routerLink="/authors/{{author.id}}">{{author.name}}</dd>
-                    </td>
-                    <td id="author-birthdate">{{author.birthdate|date:'yyyy-MM-dd'}}</td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="row">
+        <div class="col-md-4">
+            <br>
+            <div class="row justify-content-center align-self-center">
+                <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                    (click)="showHideCreate()">Create an author</button>
+            </div>
+            <br>
+            <br>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Birth Date</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let author of authors">
+                        <td>
+                            <dd id="author-name" class="figure-caption" routerLink="/authors/{{author.id}}">{{author.name}}</dd>
+                        </td>
+                        <td id="author-birthdate">{{author.birthdate|date:'yyyy-MM-dd'}}</td>
+                        <td id="author-edit">
+                            <button [ngClass]="{ 'btn-primary': (!showEdit || edit_author_id != author.id), 'btn-danger': (showEdit && edit_author_id == author.id) }"
+                                type="button" class="btn" (click)="showEditAuthor(author.id)">Edit</button>
+                        </td>
+                        <td id="author-delete">
+                            <button class="btn btn-danger" (click)="deleteAuthor(author.id)"><span class="fa fa-trash"></span></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-8">
+            <app-author-create (cancel)="showHideCreate()" (create)="ngOnInit()" *ngIf="showCreate"></app-author-create>
+            <app-author-edit [author_id]="edit_author_id" (cancel)="hideEditAuthor()" (update)="getAuthors()" *ngIf="showEdit"></app-author-edit>
+        </div>
     </div>
 </div>

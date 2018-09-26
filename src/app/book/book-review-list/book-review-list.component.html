@@ -4,7 +4,7 @@
         <h3>Reviews of the book</h3>
         <table class="table table-striped">
             <tbody>
-                <tr *ngFor="let review of reviews | paginate: { itemsPerPage: itemsPerPage, currentPage: page }">
+                <tr *ngFor="let review of reviews | paginate: { itemsPerPage: 3, currentPage: page }">
                     <td id="review-title"><b>{{review.title}}</b></td>
                     <td><span id="book-reviewed"><b>{{review.book}}</b></span><span>: </span><span id="review-description">{{review.description}}</span></td>
                 </tr>

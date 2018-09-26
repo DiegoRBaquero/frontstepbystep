@@ -8,6 +8,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { AuthorDetailComponent } from './author-detail/author-detail.component';
+import { AuthorCreateComponent } from './author-create/author-create.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AuthorEditComponent } from './author-edit/author-edit.component';
 
 @NgModule({
     imports: [
@@ -16,10 +19,11 @@ import { AuthorDetailComponent } from './author-detail/author-detail.component';
         HttpClientModule,
         CommonModule,
         FormsModule,
-        SharedModule
+        SharedModule,
+        NgbModule
     ],
     declarations: [
-        AuthorListComponent, AuthorDetailComponent
+        AuthorListComponent, AuthorDetailComponent, AuthorCreateComponent, AuthorEditComponent
     ],
     providers: [AuthorService],
     bootstrap: [AuthorListComponent]

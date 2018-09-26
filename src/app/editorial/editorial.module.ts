@@ -8,6 +8,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { EditorialDetailComponent } from './editorial-detail/editorial-detail.component';
+import { EditorialCreateComponent } from './editorial-create/editorial-create.component';
+import { EditorialEditComponent } from './editorial-edit/editorial-edit.component';
 
 @NgModule({
     imports: [
@@ -18,7 +20,7 @@ import { EditorialDetailComponent } from './editorial-detail/editorial-detail.co
         FormsModule,
         SharedModule
     ],
-    declarations: [EditorialListComponent, EditorialDetailComponent],
+    declarations: [EditorialListComponent, EditorialDetailComponent, EditorialCreateComponent, EditorialEditComponent],
     providers: [EditorialService]
 })
 export class EditorialModule { }

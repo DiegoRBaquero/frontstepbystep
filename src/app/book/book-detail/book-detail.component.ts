@@ -1,8 +1,13 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewContainerRef, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
+
+import { BookReviewListComponent } from '../book-review-list/book-review-list.component';
+
+import { ModalDialogService, SimpleModalComponent } from 'ngx-modal-dialog';
 import { ToastrService } from 'ngx-toastr';
 
 import { BookService } from '../book.service';
+
 import { Book } from '../book';
 import { Editorial } from '../../editorial/editorial';
 
@@ -19,12 +24,16 @@ export class BookDetailComponent implements OnInit, OnDestroy {
     * @param route The route which helps to retrieves the id of the book to be shown
     * @param router The router which is needed to know when the component needs to reload
     * @param toastrService The toastr to show messages to the user
+    * @param modalDialogService The popup provider
+    * @param viewRef The container for the popup
     */
     constructor(
         private bookService: BookService,
         private route: ActivatedRoute,
         private router: Router,
-        private toastrService: ToastrService
+        private toastrService: ToastrService,
+        private modalDialogService: ModalDialogService,
+        private viewRef: ViewContainerRef
     ) {
         //This is added so we can refresh the view when one of the books in
         //the "Other books" list is clicked
@@ -57,7 +66,12 @@ export class BookDetailComponent implements OnInit, OnDestroy {
     navigationSubscription;
 
     /**
-    * The method which retrieves the details of the book that
+     * The child BookReviewListComponent
+     */
+    @ViewChild(BookReviewListComponent) reviewListComponent: BookReviewListComponent;
+
+    /**
+    * The function which retrieves the details of the book that
     * we want to show
     */
     getBook(): void {
@@ -70,7 +84,7 @@ export class BookDetailComponent implements OnInit, OnDestroy {
     }
 
     /**
-    * This method retrieves all the books in the Bookstore to show them in the list
+    * This function retrieves all the books in the Bookstore to show them in the list
     */
     getAllBooks(): void {
         this.bookService.getBooks()
@@ -83,9 +97,41 @@ export class BookDetailComponent implements OnInit, OnDestroy {
     }
 
     /**
-    * The method which initilizes the component
-    * We need to initialize the book and its editorial so that
-    * they are never considered undefined
+    * This function deletes the book from the BookStore 
+    */
+    deleteBook(): void {
+        this.modalDialogService.openDialog(this.viewRef, {
+            title: 'Delete a book',
+            childComponent: SimpleModalComponent,
+            data: { text: 'Are you sure your want to delete this book?' },
+            actionButtons: [
+                {
+                    text: 'Yes',
+                    buttonClass: 'btn btn-danger',
+                    onAction: () => {
+                        this.bookService.deleteBook(this.book_id).subscribe(books => {
+                            this.toastrService.error("The book was successfully deleted", "Book deleted");
+                            this.router.navigate(['books/list']);
+                        }, err => {
+                            this.toastrService.error(err, "Error");
+                        });
+                        return true;
+                    }
+                },
+                { text: 'No', onAction: () => true }
+            ]
+        });
+    }
+
+    /**
+     * The function called when a review is posted, so that the child component can refresh the list
+     */
+    updateReviews() {
+        this.reviewListComponent.getReviews();
+    }
+
+    /**
+    * The function which initilizes the component
     */
     ngOnInit() {
         this.book_id = +this.route.snapshot.paramMap.get('id');
@@ -97,7 +143,7 @@ export class BookDetailComponent implements OnInit, OnDestroy {
     }
 
     /**
-    * This method helps to refresh the view when we need to load another book into it
+    * This function helps to refresh the view when we need to load another book into it
     * when one of the other books in the list is clicked
     */
     ngOnDestroy() {

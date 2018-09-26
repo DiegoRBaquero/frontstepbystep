@@ -9,6 +9,10 @@ import { Review } from '../review';
 })
 export class BookReviewListComponent implements OnInit, OnChanges {
 
+    /**
+    * The constructor of the component
+    * @param bookService The book service which communicates with the API
+     */
     constructor(
         private bookService: BookService
     ) { }
@@ -30,12 +34,7 @@ export class BookReviewListComponent implements OnInit, OnChanges {
     page: number;
 
     /**
-    * The max number of reviews per page
-    */
-    itemsPerPage: number;
-
-    /**
-    * The method which obtains the reviews of the book
+    * The function which obtains the reviews of the book
     */
     getReviews(): void {
         this.bookService.getReviews(this.book_id)
@@ -43,19 +42,18 @@ export class BookReviewListComponent implements OnInit, OnChanges {
     }
 
     /**
-    * The method which initializes the component.
+    * The function which initializes the component.
     */
     ngOnInit() {
         this.reviews = [];
         this.page = 1;
-        this.itemsPerPage = 3;
         if (this.book_id != undefined) {
             this.getReviews();
         }
     }
 
     /**
-    * The method which notices that the input which defines the book_id has changed.
+    * The function which notices that the input which defines the book_id has changed.
     * If the book has changed, we update the reviews to show
     */
     ngOnChanges(changes: SimpleChanges) {
@@ -63,5 +61,4 @@ export class BookReviewListComponent implements OnInit, OnChanges {
             this.ngOnInit();
         }
     }
-
 }

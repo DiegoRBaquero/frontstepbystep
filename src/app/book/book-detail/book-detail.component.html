@@ -4,8 +4,16 @@
         <h3 id="book-name">{{book.name}}</h3>
         <div class="row">
             <div class="col-md-3">
-                <div class="thumb">
-                    <img id="book-cover-image" class="img-fluid" src="{{book.image}}" />
+                <div class="row">
+                    <div class="thumb">
+                        <img id="book-cover-image" class="img-fluid" src="{{book.image}}" />
+                    </div>
+                </div>
+                <br>
+                <div class="row justify-content-center align-self-center">
+                    <button class="btn btn-primary text-center" routerLink="/books/{{book.id}}/edit">Edit</button>
+                    <div class="divider"></div>
+                    <button class="btn btn-danger text-center" (click)="deleteBook()"><span class="fa fa-trash"></span></button>
                 </div>
             </div>
             <div class="col-md-3">
@@ -41,5 +49,7 @@
     <hr>
     <app-book-reviews [book_id]="book_id"></app-book-reviews>
     <hr>
+    <app-book-add-review [book_id]="book_id" (updateReviews)="updateReviews()"></app-book-add-review>
+    <br>
     <br>
 </div>

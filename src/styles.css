@@ -1,1 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+.mainTitle {
+    font-variant: small-caps;
+    font-style: italic;
+}
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+}
+.right-space {
+    margin-right: 1em;
+}
+.divider{
+    width:5px;
+    height:auto;
+    display:inline-block;
+}

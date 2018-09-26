@@ -1,0 +1,24 @@
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+        <br>
+        <h2 class="text-center">Create an editorial</h2>
+        <br>
+        <form name="editorial" (ngSubmit)="f.form.valid && createEditorial()" #f="ngForm" novalidate>
+            <div class="form-group">
+                <label for="editorialName"><b>Name</b></label>
+                <input type="text" name="editorialName" class="form-control" id="editorialName" [(ngModel)]="editorial.name"
+                    #editorialName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && editorialName.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>The editorial's name is missing</div>
+                </div>
+            </div>
+            <div class="row form-inline justify-content-center align-self-center">
+                <button type="submit" class="btn btn-primary">Create</button>
+                <div class="divider"></div>
+                <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-3"></div>
+</div>

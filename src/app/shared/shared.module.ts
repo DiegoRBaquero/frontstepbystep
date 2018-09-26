@@ -6,6 +6,7 @@ import { AppRoutingModule } from '../routing-module/app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ListSwapComponent } from './list-swap/list-swap.component';
 
 @NgModule({
     imports: [
@@ -17,10 +18,12 @@ import { NgxPaginationModule } from 'ngx-pagination';
         NgxPaginationModule
      ],
     declarations: [
-        BookSidebarComponent
+        BookSidebarComponent,
+        ListSwapComponent
     ],
     exports: [
-        BookSidebarComponent
+        BookSidebarComponent,
+        ListSwapComponent
     ]
 })
   

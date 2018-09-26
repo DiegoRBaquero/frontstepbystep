@@ -30,7 +30,7 @@ export class BookListComponent implements OnInit {
     books: Book[];
 
     /**
-    * This method retrieves all the books in the Bookstore to show them in the list
+    * This function retrieves all the books in the Bookstore to show them in the list
     */
     getBooks(): void {
         this.bookService.getBooks()
@@ -43,7 +43,7 @@ export class BookListComponent implements OnInit {
 
     /**
     * This will initialize the component by retrieving the list of books from the service
-    * This method will be called when the component is created
+    * This function will be called when the component is created
     */
     ngOnInit() {
         this.books = [];

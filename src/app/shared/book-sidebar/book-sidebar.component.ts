@@ -26,7 +26,7 @@ export class BookSidebarComponent implements OnInit, OnChanges {
     /**
     * Shows/hides the button that shifts the list to left
     */
-    showLeft: boolean
+    showLeft: boolean;
 
     /**
     * Shows/hides the button that shifts the list to right
@@ -38,6 +38,9 @@ export class BookSidebarComponent implements OnInit, OnChanges {
     */
     constructor() { }
 
+    /**
+     * This function initializes the list
+     */
     initializeList(): void {
         this.list = [];
         if (this.books.length > this.maxPerPage) {
@@ -71,8 +74,8 @@ export class BookSidebarComponent implements OnInit, OnChanges {
     }
 
     /**
-    * Hides or shows the buttons to go left or right on the list
-    */
+     * Hides or shows the buttons depending on the position of the list
+     */
     hideShowButtons(): void {
         if (this.list[0] == this.books[0]) this.showLeft = false;
         else this.showLeft = true;
@@ -81,7 +84,7 @@ export class BookSidebarComponent implements OnInit, OnChanges {
     }
 
     /**
-    * This function which initializes the component
+    * The function which initializes the component
     */
     ngOnInit() {
         this.maxPerPage = 5;
@@ -91,7 +94,7 @@ export class BookSidebarComponent implements OnInit, OnChanges {
     }
 
     /**
-     * This function updates the list whenever there is a change 
+     * This function is called everytime there's the need to update the content of the list
      */
     ngOnChanges() {
         this.showLeft = false;

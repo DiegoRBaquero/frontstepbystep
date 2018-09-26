@@ -21,9 +21,9 @@ export class Author {
     image: string;
     
     /**
-    * The author's birthdate MM/DD/YYYY
+    * The author's birthdate MM-DD-YYYY
     */
-    birthdate: string;
+    birthdate: any;
     
     /**
     * A brief description of the author's life

@@ -1,4 +1,3 @@
-import { Author } from '../author/author';
 import { Editorial } from '../editorial/editorial';
 
 /**
@@ -24,7 +23,7 @@ export class Book {
     /**
     * The book's publish date
     */
-    publish_date: Date;
+    publish_date: any;
 
     /**
     * A brief summary of the book
@@ -39,7 +38,7 @@ export class Book {
     /**
     * The authors of the book
     */
-    authors: Author[];
+    authors: any[];
 
     /**
     * The editorial of the book

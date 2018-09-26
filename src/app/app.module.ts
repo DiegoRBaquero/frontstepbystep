@@ -12,6 +12,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { SharedModule } from './shared/shared.module';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ModalDialogModule } from 'ngx-modal-dialog';
 
 @NgModule({
     declarations: [
@@ -29,7 +31,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
         ToastrModule.forRoot(),
         SharedModule,
         AngularFontAwesomeModule,
-        NgxPaginationModule
+        NgxPaginationModule,
+        NgbModule,
+        ModalDialogModule.forRoot()
     ],
     bootstrap: [AppComponent]
 })

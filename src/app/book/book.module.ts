@@ -10,6 +10,10 @@ import { SharedModule } from '../shared/shared.module';
 import { BookDetailComponent } from './book-detail/book-detail.component';
 import { BookReviewListComponent } from './book-review-list/book-review-list.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { BookCreateComponent } from './book-create/book-create.component';
+import { BookEditComponent } from './book-edit/book-edit.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BookAddReviewComponent } from './book-add-review/book-add-review.component';
 
 @NgModule({
     imports: [
@@ -19,10 +23,11 @@ import { NgxPaginationModule } from 'ngx-pagination';
         CommonModule,
         FormsModule,
         SharedModule,
-        NgxPaginationModule
+        NgxPaginationModule,
+        NgbModule
     ],
     declarations: [
-        BookListComponent, BookDetailComponent, BookReviewListComponent
+        BookListComponent, BookDetailComponent, BookReviewListComponent, BookCreateComponent, BookEditComponent, BookAddReviewComponent
     ],
     providers: [BookService],
     bootstrap: [BookListComponent]

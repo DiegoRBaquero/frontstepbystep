@@ -1,0 +1,31 @@
+<div class="container-fluid">
+    <h3>Add a review</h3>
+    <form name="post" (ngSubmit)="reviewForm.form.valid && postReview(reviewForm)" #reviewForm="ngForm" novalidate>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="reviewTitle"><b>Title</b></label>
+                    <input type="text" name="reviewTitle" class="form-control" id="reviewTitle" [(ngModel)]="review.title"
+                        #reviewTitle="ngModel" [ngClass]="{ 'is-invalid': reviewForm.submitted && reviewTitle.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>The review's title is missing</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="reviewDescription"><b>Description</b></label>
+                    <textarea name="reviewDescription" class="form-control" id="reviewDescription" [(ngModel)]="review.description"
+                        #reviewDescription="ngModel" [ngClass]="{ 'is-invalid': reviewForm.submitted && reviewDescription.invalid }"
+                        required></textarea>
+                    <div class="invalid-feedback">
+                        <div>The review's description is missing</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row form-inline justify-content-center align-self-center">
+            <button type="submit" class="btn btn-primary">Post review</button>
+        </div>
+    </form>
+</div>

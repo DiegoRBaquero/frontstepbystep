@@ -27,5 +27,4 @@ export class Review {
     * The name of the book of the review
     */
     book: string;
-    
 }

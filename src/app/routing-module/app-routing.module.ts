@@ -7,6 +7,8 @@ import { EditorialListComponent } from '../editorial/editorial-list/editorial-li
 import { BookDetailComponent } from '../book/book-detail/book-detail.component';
 import { AuthorDetailComponent } from '../author/author-detail/author-detail.component';
 import { EditorialDetailComponent } from '../editorial/editorial-detail/editorial-detail.component';
+import { BookCreateComponent } from '../book/book-create/book-create.component';
+import { BookEditComponent } from '../book/book-edit/book-edit.component';
 
 const routes: Routes = [
 
@@ -18,9 +20,17 @@ const routes: Routes = [
                 component: BookListComponent
             },
             {
-                path: ':id',
+                path: ':id/details',
                 component: BookDetailComponent,
                 runGuardsAndResolvers: 'always'
+            },
+            {
+                path: ':id/edit',
+                component: BookEditComponent
+            },
+            {
+                path: 'add',
+                component: BookCreateComponent
             }
         ]
     },
