@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgxRolesService } from 'ngx-permissions';
 
 /**
  * The app component. This component is the base of the BookStore
@@ -20,12 +21,14 @@ export class AppComponent implements OnInit {
      */
     ngOnInit(): void {
         this.title = "BookStore";
+        const perm = ["GUEST", "ADMIN"];
+        this.roleService.addRole('GUEST', ["LOGIN"])
     }
 
     /**
      * @ignore
      */
-    constructor() { }
+    constructor(private roleService: NgxRolesService) { }
 
 }
 

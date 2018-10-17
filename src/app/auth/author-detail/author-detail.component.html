@@ -1,0 +1,35 @@
+<div class="container-fluid">
+    <hr>
+    <div>
+        <h1 id="author-name">{{author.name}}</h1>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="thumb">
+                    <img id="author-image" class="img-fluid" src='{{author.image}}' alt="{{author.image}}" />
+                </div>
+            </div>
+            <div class="col-md-3">
+                <dl>
+                    <hr>
+                    <dt>Birth Date</dt>
+                    <dd id="author-birthdate">{{author.birthdate| date:'yyyy-MM-dd'}}</dd>
+                    <hr>
+                </dl>
+            </div>
+            <div class="col-md-4">
+                <dl>
+                    <hr>
+                    <dt>Bio</dt>
+                    <dd id="author-description">{{author.description}}</dd>
+                    <hr>
+                </dl>
+            </div>
+        </div>
+    </div>
+    <br>
+    <hr>
+    <h3>Other books by this author : </h3>
+    <app-book-sidebar [books]="author_books"></app-book-sidebar>
+    <hr>
+    <br>
+</div>

@@ -14,6 +14,7 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ModalDialogModule } from 'ngx-modal-dialog';
+import { NgxPermissionsModule } from 'ngx-permissions';
 
 @NgModule({
     declarations: [
@@ -33,7 +34,8 @@ import { ModalDialogModule } from 'ngx-modal-dialog';
         AngularFontAwesomeModule,
         NgxPaginationModule,
         NgbModule,
-        ModalDialogModule.forRoot()
+        ModalDialogModule.forRoot(),
+        NgxPermissionsModule.forRoot()
     ],
     bootstrap: [AppComponent]
 })

@@ -9,6 +9,7 @@ import { AuthorDetailComponent } from '../author/author-detail/author-detail.com
 import { EditorialDetailComponent } from '../editorial/editorial-detail/editorial-detail.component';
 import { BookCreateComponent } from '../book/book-create/book-create.component';
 import { BookEditComponent } from '../book/book-edit/book-edit.component';
+import { NgxPermissionsGuard } from 'ngx-permissions';
 
 const routes: Routes = [
 
@@ -26,7 +27,14 @@ const routes: Routes = [
             },
             {
                 path: ':id/edit',
-                component: BookEditComponent
+                component: BookEditComponent,
+                  canActivate: [NgxPermissionsGuard],
+                  data: {
+                    permissions: {
+                      only: ['ADMIN', 'MODERATOR'],
+                      except: ['GUEST']
+                    }
+                  }
             },
             {
                 path: 'add',
