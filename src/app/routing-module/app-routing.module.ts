@@ -9,6 +9,7 @@ import { AuthorDetailComponent } from '../author/author-detail/author-detail.com
 import { EditorialDetailComponent } from '../editorial/editorial-detail/editorial-detail.component';
 import { BookCreateComponent } from '../book/book-create/book-create.component';
 import { BookEditComponent } from '../book/book-edit/book-edit.component';
+import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 import { NgxPermissionsGuard } from 'ngx-permissions';
 
 const routes: Routes = [
@@ -61,6 +62,19 @@ const routes: Routes = [
             {
                 path: 'list',
                 component: EditorialListComponent
+            },
+            {
+                path: ':id',
+                component: EditorialDetailComponent
+            }
+        ]
+    },
+    {
+        path: 'auth',
+        children: [
+            {
+                path: 'login',
+                component: AuthLoginComponent
             },
             {
                 path: ':id',

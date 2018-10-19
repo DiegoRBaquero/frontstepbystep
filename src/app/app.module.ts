@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './routing-module/app-routing.module';
 import { AuthorModule } from './author/author.module';
+import { AuthModule } from './auth/auth.module';
 import { BookModule } from './book/book.module';
 import { EditorialModule } from './editorial/editorial.module';
 import { FormsModule } from '@angular/forms';
@@ -25,6 +26,7 @@ import { NgxPermissionsModule } from 'ngx-permissions';
         AppRoutingModule,
         HttpClientModule,
         AuthorModule,
+        AuthModule,
         BookModule,
         EditorialModule,
         FormsModule,

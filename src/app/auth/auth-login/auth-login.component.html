@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="col-6 offset-3">
+        <br>
+        <h2 class="text-center">Login</h2>
+        <br>
+        <form name="author" (ngSubmit)="f.form.valid && editAuthor()" #f="ngForm" novalidate>
+            <div class="form-group">
+                <label for="username"><b>Name</b></label>
+                <input type="text" name="username" class="form-control" id="username" [(ngModel)]="user.name"
+                    #authorName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && authorName.invalid }" required>
+            </div>
+            <div class="form-group">
+                <label for="password"><b>Password</b></label>
+                <input type="text" name="password" class="form-control" id="password" [(ngModel)]="user.password"
+                       #authorName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && authorName.invalid }" required>
+            </div>
+            <div class="form-group">
+                <label for="role"><b>Role</b></label>
+                <select class="custom-select" name="role" id="role" [(ngModel)]="user.role"
+                        #bookEditorial="ngModel" [ngClass]="{ 'is-invalid': f.submitted && bookEditorial.invalid }"
+                        required>
+                    <option [value]="role" *ngFor="let role of roles">{{role}}</option>
+                </select>
+                <div class="invalid-feedback">
+                    <div>The author's description is missing</div>
+                </div>
+            </div>
+            <div class="justify-content-center align-self-center">
+                <button type="button" class="btn btn-primary" (click)="login()">Login</button>
+            </div>
+        </form>
+    </div>
+</div>
