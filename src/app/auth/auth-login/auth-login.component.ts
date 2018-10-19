@@ -33,7 +33,8 @@ export class AuthLoginComponent implements OnInit, OnChanges {
     * to update
     */
     login(): void {
-        this.authService.login('GUEST')
+        console.log('woot')
+        this.authService.login(this.user.role)
     }
 
     /**
@@ -41,7 +42,7 @@ export class AuthLoginComponent implements OnInit, OnChanges {
     */
     ngOnInit() {
         this.user = new User();
-        this.roles = ['GUEST'];
+        this.roles = ['Administrator', 'Assistant'];
     }
 
     /**

@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ListSwapComponent } from './list-swap/list-swap.component';
+import { NgxPermissionsModule } from 'ngx-permissions';
 
 @NgModule({
     imports: [
@@ -15,7 +16,8 @@ import { ListSwapComponent } from './list-swap/list-swap.component';
         HttpClientModule,
         CommonModule,
         FormsModule,
-        NgxPaginationModule
+        NgxPaginationModule,
+        NgxPermissionsModule
      ],
     declarations: [
         BookSidebarComponent,
@@ -23,7 +25,8 @@ import { ListSwapComponent } from './list-swap/list-swap.component';
     ],
     exports: [
         BookSidebarComponent,
-        ListSwapComponent
+        ListSwapComponent,
+        NgxPermissionsModule
     ]
 })
   

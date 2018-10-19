@@ -20,6 +20,8 @@ export class AuthService {
     * @returns The author details
     */
     login(role): void {
-        this.roleService.addRole(role, [role])
+        this.roleService.flushRoles();
+        this.roleService.addRole(role, [role]);
+        console.log(this.roleService.getRoles());
     }
 }
