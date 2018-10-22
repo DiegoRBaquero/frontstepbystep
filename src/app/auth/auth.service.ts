@@ -14,6 +14,11 @@ export class AuthService {
     */
     constructor(private roleService: NgxRolesService, private permissionService: NgxPermissionsService) { }
 
+    start(): void {
+        this.permissionService.loadPermissions(['GUEST', 'Administrator', 'Assistant']);
+        this.roleService.addRole('GUEST', ['GUEST'])
+    }
+
     /**
     * Retrieves the information of an author from the BookStore
     * @param authorId The id of the author

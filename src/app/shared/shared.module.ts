@@ -16,8 +16,7 @@ import { NgxPermissionsModule } from 'ngx-permissions';
         HttpClientModule,
         CommonModule,
         FormsModule,
-        NgxPaginationModule,
-        NgxPermissionsModule
+        NgxPaginationModule
      ],
     declarations: [
         BookSidebarComponent,

@@ -31,6 +31,12 @@
         </form>
     </div>
     <div *ngxPermissionsOnly="Administrator">
-        HOLAAAA
+        Admin visible
+    </div>
+    <div *ngxPermissionsOnly="GUEST">
+        Guest visible
+    </div>
+    <div *ngxPermissionsOnly="Assistant">
+        Assistant visible
     </div>
 </div>
