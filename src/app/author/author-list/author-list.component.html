@@ -14,8 +14,8 @@
                     <tr>
                         <th>Name</th>
                         <th>Birth Date</th>
-                        <th></th>
-                        <th></th>
+                        <th *ngxPermissionsOnly="['ADMIN']"></th>
+                        <th *ngxPermissionsOnly="['ADMIN']"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -24,11 +24,11 @@
                             <dd id="author-name" class="figure-caption" routerLink="/authors/{{author.id}}">{{author.name}}</dd>
                         </td>
                         <td id="author-birthdate">{{author.birthdate|date:'yyyy-MM-dd'}}</td>
-                        <td id="author-edit">
+                        <td id="author-edit" *ngxPermissionsOnly="['ADMIN']">
                             <button [ngClass]="{ 'btn-primary': (!showEdit || edit_author_id != author.id), 'btn-danger': (showEdit && edit_author_id == author.id) }"
                                 type="button" class="btn" (click)="showEditAuthor(author.id)">Edit</button>
                         </td>
-                        <td id="author-delete">
+                        <td id="author-delete" *ngxPermissionsOnly="['ADMIN']">
                             <button class="btn btn-danger" (click)="deleteAuthor(author.id)"><span class="fa fa-trash"></span></button>
                         </td>
                     </tr>

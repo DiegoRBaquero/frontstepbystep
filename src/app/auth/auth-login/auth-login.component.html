@@ -30,13 +30,10 @@
             </div>
         </form>
     </div>
-    <div *ngxPermissionsOnly="Administrator">
-        Admin visible
+    <div *ngxPermissionsOnly="['ADMIN']">
+        Hello admin
     </div>
-    <div *ngxPermissionsOnly="GUEST">
-        Guest visible
-    </div>
-    <div *ngxPermissionsOnly="Assistant">
-        Assistant visible
+    <div *ngxPermissionsOnly="['GUEST']">
+        Hello guest
     </div>
 </div>

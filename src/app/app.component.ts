@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
      */
     ngOnInit(): void {
         this.title = "BookStore";
-        this.authService.start()
+        this.authService.start();
     }
 
     /**
