@@ -7,15 +7,15 @@ import { User } from '../user';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
-    selector: 'app-auth-login',
-    templateUrl: './auth-login.component.html',
-    styleUrls: ['./auth-login.component.css']
+    selector: 'app-auth-sign-up',
+    templateUrl: './auth-sign-up.component.html',
+    styleUrls: ['./auth-sign-up.component.css']
 })
-export class AuthLoginComponent implements OnInit {
+export class AuthSignUpComponent implements OnInit {
 
     /**
     * Constructor for the component
-    * @param authService Auth service provider
+     * @param authService Auth service provider
     * @param toastrService The toastr to show messages to the user
     */
     constructor(
@@ -28,11 +28,11 @@ export class AuthLoginComponent implements OnInit {
     roles: String[];
 
     /**
-    * Logs the user in with the selected role
+    * Sign the user up with the selected role
     */
-    login(): void {
+    signUp(): void {
         this.authService.login(this.user.role);
-        this.toastrService.success('Logged in')
+        this.toastrService.success('Successfully signed up')
     }
 
     /**

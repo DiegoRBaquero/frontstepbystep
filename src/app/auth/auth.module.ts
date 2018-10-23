@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AuthLoginComponent } from './auth-login/auth-login.component';
+import { AuthSignUpComponent } from './auth-sign-up/auth-sign-up.component';
 
 @NgModule({
     imports: [
@@ -19,7 +20,7 @@ import { AuthLoginComponent } from './auth-login/auth-login.component';
         SharedModule,
         NgbModule
     ],
-    declarations: [AuthLoginComponent],
+    declarations: [AuthLoginComponent, AuthSignUpComponent],
     providers: [AuthService],
     bootstrap: [AuthLoginComponent]
 })

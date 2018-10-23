@@ -1,20 +1,20 @@
 /**
-* This class represents a book of the BookStore. 
-* It contains all the information relevant to the book.
+* This class represents a user of the BookStore.
+* It contains all the information relevant to the user.
 */
 export class User {
     /**
-    * The book's name
+    * The user's name
     */
     name: string;
 
     /**
-    * The book's ISBN
+    * The user's password
     */
     password: string;
 
     /**
-    * The book's publish date
+    * The user's role
     */
     role: string;
 }

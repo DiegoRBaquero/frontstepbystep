@@ -19,18 +19,23 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item"class="nav-item nav-link" routerLink="/books/list">See all</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item"class="nav-item nav-link" routerLink="/books/add">Add new book</a>
+                    <a class="dropdown-item"class="nav-item nav-link" routerLink="/books/add" *ngxPermissionsOnly="['CLIENT', 'ADMIN']">Add new book</a>
                 </div>
             </li>
             <a id="authors-navbar-item" class="nav-item nav-link" routerLink="/authors/list">Authors</a>
             <a id="editorials-navbar-item" class="nav-item nav-link" routerLink="/editorials/list">Editorials</a>
         </div>
         <div class="navbar-nav ml-auto flex-column">
-            <div class="flex-row" *ngxPermissionsOnly="GUEST">
+            <div class="flex-row" *ngxPermissionsOnly="['GUEST']">
                 <div class="form-inline">
                     <li class="right-space"><a id="signup-navbar-item" routerLink="/auth/sign-up"><span class="fa fa-user"></span>
                             Sign Up</a></li>
                     <li><a id="login-navbar-item" routerLink="/auth/login"><span class="fa fa-sign-in"></span>Login</a></li>
+                </div>
+            </div>
+            <div class="flex-row" *ngxPermissionsOnly="['CLIENT', 'ADMIN']">
+                <div class="form-inline">
+                    <li><a id="logout-navbar-item" (click)="logout()" href="#"><span class="fa fa-sign-out"></span>Logout</a></li>
                 </div>
             </div>
             <button id="checkout-navbar-item" type="button" class="btn btn-default">

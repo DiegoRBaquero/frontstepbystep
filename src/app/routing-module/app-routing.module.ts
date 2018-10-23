@@ -10,6 +10,7 @@ import { EditorialDetailComponent } from '../editorial/editorial-detail/editoria
 import { BookCreateComponent } from '../book/book-create/book-create.component';
 import { BookEditComponent } from '../book/book-edit/book-edit.component';
 import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
+import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
 import { NgxPermissionsGuard } from 'ngx-permissions';
 
 const routes: Routes = [
@@ -77,8 +78,8 @@ const routes: Routes = [
                 component: AuthLoginComponent
             },
             {
-                path: ':id',
-                component: EditorialDetailComponent
+                path: 'sign-up',
+                component: AuthSignUpComponent
             }
         ]
     }

@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-md-4">
             <br>
-            <div class="row justify-content-center align-self-center">
+            <div class="row justify-content-center align-self-center" *ngxPermissionsOnly="['ADMIN']">
                 <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
                     (click)="showHideCreate()">Create an editorial</button>
             </div>
@@ -13,8 +13,8 @@
                 <thead>
                     <tr>
                         <th>Name</th>
-                        <th></th>
-                        <th></th>
+                        <th *ngxPermissionsOnly="['ADMIN']"></th>
+                        <th *ngxPermissionsOnly="['ADMIN']"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -22,11 +22,11 @@
                         <td>
                             <dd id="editorial-name" class="figure-caption" routerLink="/editorials/{{editorial.id}}">{{editorial.name}}</dd>
                         </td>
-                        <td id="editorial-edit">
+                        <td id="editorial-edit" *ngxPermissionsOnly="['ADMIN']">
                             <button [ngClass]="{ 'btn-primary': (!showEdit || edit_editorial_id != editorial.id), 'btn-danger': (showEdit && edit_editorial_id == editorial.id) }"
                                 type="button" class="btn" (click)="showEditEditorial(editorial.id)">Edit</button>
                         </td>
-                        <td id="editorial-delete">
+                        <td id="editorial-delete" *ngxPermissionsOnly="['ADMIN']">
                             <button class="btn btn-danger" (click)="deleteEditorial(editorial.id)"><span class="fa fa-trash"></span></button>
                         </td>
                     </tr>
