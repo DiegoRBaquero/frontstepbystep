@@ -4,14 +4,16 @@ import {NgxRolesService, NgxPermissionsService} from 'ngx-permissions'
 import 'rxjs/add/operator/catch';
 
 /**
- * The service provider for everything related to authors
+ * The service provider for everything related to authentication
  */
 @Injectable()
 export class AuthService {
 
     /**
      * Constructor of the service
-     * @param http The HttpClient - This is necessary in order to perform requests
+     * @param router Angular's Router to redirect the user on login or logout
+     * @param roleService NgxRolesService to manage authentication roles
+     * @param permissionsService NgxPermissionsService to manage authentication permissions
      */
     constructor (private router: Router, private roleService: NgxRolesService, private permissionsService: NgxPermissionsService) { }
 
@@ -51,9 +53,8 @@ export class AuthService {
     }
 
     /**
-     * Retrieves the information of an author from the BookStore
-     * @param authorId The id of the author
-     * @returns The author details
+     * Logs the user in with the desired role
+     * @param role The desired role to set to the user
      */
     login (role): void {
         if (role === 'Administrator') {
