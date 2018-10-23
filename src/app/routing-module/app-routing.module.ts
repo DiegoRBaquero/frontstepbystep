@@ -1,17 +1,17 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule, Routes } from '@angular/router';
-import { BookListComponent } from '../book/book-list/book-list.component';
-import { AuthorListComponent } from '../author/author-list/author-list.component';
-import { EditorialListComponent } from '../editorial/editorial-list/editorial-list.component';
-import { BookDetailComponent } from '../book/book-detail/book-detail.component';
-import { AuthorDetailComponent } from '../author/author-detail/author-detail.component';
-import { EditorialDetailComponent } from '../editorial/editorial-detail/editorial-detail.component';
-import { BookCreateComponent } from '../book/book-create/book-create.component';
-import { BookEditComponent } from '../book/book-edit/book-edit.component';
-import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
-import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
-import { NgxPermissionsGuard } from 'ngx-permissions';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {RouterModule, Routes} from '@angular/router';
+import {BookListComponent} from '../book/book-list/book-list.component';
+import {AuthorListComponent} from '../author/author-list/author-list.component';
+import {EditorialListComponent} from '../editorial/editorial-list/editorial-list.component';
+import {BookDetailComponent} from '../book/book-detail/book-detail.component';
+import {AuthorDetailComponent} from '../author/author-detail/author-detail.component';
+import {EditorialDetailComponent} from '../editorial/editorial-detail/editorial-detail.component';
+import {BookCreateComponent} from '../book/book-create/book-create.component';
+import {BookEditComponent} from '../book/book-edit/book-edit.component';
+import {AuthLoginComponent} from '../auth/auth-login/auth-login.component';
+import {AuthSignUpComponent} from '../auth/auth-sign-up/auth-sign-up.component';
+import {NgxPermissionsGuard} from 'ngx-permissions';
 
 const routes: Routes = [
 
@@ -30,17 +30,22 @@ const routes: Routes = [
             {
                 path: ':id/edit',
                 component: BookEditComponent,
-                  canActivate: [NgxPermissionsGuard],
-                  data: {
+                canActivate: [NgxPermissionsGuard],
+                data: {
                     permissions: {
-                      only: ['ADMIN', 'MODERATOR'],
-                      except: ['GUEST']
+                        only: ['ADMIN']
                     }
-                  }
+                }
             },
             {
                 path: 'add',
-                component: BookCreateComponent
+                component: BookCreateComponent,
+                canActivate: [NgxPermissionsGuard],
+                data: {
+                    permissions: {
+                        only: ['ADMIN']
+                    }
+                }
             }
         ]
     },
